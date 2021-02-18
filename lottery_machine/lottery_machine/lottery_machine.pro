@@ -16,13 +16,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    lottery_dialog.cpp \
+    lottery_task.cpp \
     main.cpp \
     lottery_main.cpp
 
 HEADERS += \
-    lottery_main.h
+    lottery_dialog.h \
+    lottery_main.h \
+    lottery_task.h
 
 FORMS += \
+    lottery_dialog.ui \
     lottery_main.ui
 
 # Default rules for deployment.

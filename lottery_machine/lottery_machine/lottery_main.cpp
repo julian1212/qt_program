@@ -4,7 +4,8 @@
 #include "QDebug"
 #include "QMessageBox"
 #include "QFile"
-#include "lottery_widget.h"
+#include "lottery_dialog.h"
+
 
 Lottery_Main::Lottery_Main(QWidget *parent)
     : QMainWindow(parent)
@@ -56,5 +57,8 @@ void Lottery_Main::onPushImport()
 void Lottery_Main::onPushLottery()
 {
     //qDebug()<<"click lottery pushbutton"<<endl;
-
+    Lottery_Dialog dlg(m_list);
+    //dlg.setDlgList(m_list);
+    dlg.show();
+    dlg.exec();
 }
