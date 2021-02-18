@@ -18,14 +18,17 @@ protected:
 private:
     QList<QString> thread_list;
     int m_flag;    //run = 1, stop = 0
+    int random_id;
 
 
 signals:
-    void selected_info(QString);
+    void selected_info(int);
+    void show_info(int);
 
 public slots:
     void onSignalRun();
     void onSignalStop();
+
 
 };
 

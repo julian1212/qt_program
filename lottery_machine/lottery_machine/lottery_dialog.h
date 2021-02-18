@@ -29,7 +29,8 @@ private:
 
 public slots:
     void onClickBtn();
-    void updateList(QString);
+    void showList(int);
+    void on_select(int);
 
 signals:
     void signal_stop();

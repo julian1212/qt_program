@@ -18,7 +18,8 @@ Lottery_Dialog::Lottery_Dialog(QList<QString> x,QWidget *parent) :
     m_task = new Lottery_Task(dlg_list);
     QObject::connect(this,&Lottery_Dialog::signal_run,m_task,&Lottery_Task::onSignalRun);
     QObject::connect(this,&Lottery_Dialog::signal_stop,m_task,&Lottery_Task::onSignalStop);
-
+    QObject::connect(m_task,&Lottery_Task::show_info,this,&Lottery_Dialog::showList);
+    QObject::connect(m_task,&Lottery_Task::selected_info,this,&Lottery_Dialog::on_select);
     m_task->start();
 }
 
@@ -62,7 +63,15 @@ void Lottery_Dialog::onClickBtn()
     }
 }
 
-void Lottery_Dialog::updateList(QString q)
+void Lottery_Dialog::showList(int n)
 {
-    qDebug()<<q<<endl;
+    ui->label->setText(dlg_list.at(n));
+}
+
+void Lottery_Dialog::on_select(int n)
+{
+    QString temp_result=dlg_list.at(n);
+    ui->textEdit->append(temp_result);
+    result_list.append(temp_result);
+    //dlg_list.removeAt(n);
 }
